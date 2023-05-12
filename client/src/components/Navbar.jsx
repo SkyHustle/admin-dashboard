@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import {
   LightModeOutlined,
   DarkModeOutlined,
@@ -24,9 +24,15 @@ import {
   useTheme,
 } from "@mui/material";
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isOpen = Boolean(anchorEl);
+
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+
   return (
     <AppBar
       sx={{
@@ -69,7 +75,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
           <FlexBetween>
             <Button
-              onClick={() => console.log("setIsProfileMenuOpen")}
+              onClick={handleClick}
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -93,13 +99,13 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                   fontSize="0.85rem"
                   sx={{ color: theme.palette.secondary[100] }}
                 >
-                  Sandy
+                  {user.name}
                 </Typography>
                 <Typography
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  Admin
+                  {user.role}
                 </Typography>
               </Box>
               <ArrowDropDownOutlined
@@ -107,14 +113,14 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               />
             </Button>
             <Menu
-              anchorEl=""
-              open={false}
-              onClose={() => {}}
+              anchorEl={anchorEl}
+              open={isOpen}
+              onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-              <MenuItem onClick={() => console.log("handleClose")}>
-                Log Out
-              </MenuItem>
+              <MenuItem onClick={handleClose}>Settings</MenuItem>
+              <MenuItem onClick={handleClose}>Magic</MenuItem>
+              <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
           </FlexBetween>
         </FlexBetween>

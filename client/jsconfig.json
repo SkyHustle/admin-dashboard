@@ -1,4 +1,3 @@
-// not working, no idea why
 {
     "compilerOptions": {
       "baseUrl": "src"
