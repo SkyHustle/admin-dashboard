@@ -14,3 +14,5 @@ const TransactionSchema = new mongoose.Schema(
 
 const Transaction = mongoose.model("Transaction", TransactionSchema);
 export default Transaction;
+
+// userId is not being set in Mongo as ObjectId but as String
