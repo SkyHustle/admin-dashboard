@@ -45,7 +45,7 @@ const Performance = () => {
     <Box m="1.5rem 2.5rem">
       <Header
         title="PERFORMANCE"
-        subtitle="Track your Affiliate Sales Performance Here"
+        subtitle="Track Affiliate Sales Performance"
       />
       <Box
         mt="40px"
