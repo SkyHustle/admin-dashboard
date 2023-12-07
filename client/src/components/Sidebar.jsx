@@ -35,7 +35,7 @@ import profileImage from "../assets/headshot.jpg";
 
 const navItems = [
   {
-    text: "Dashboard",
+    text: "Dashboard!",
     icon: <HomeOutlined />,
   },
   {
